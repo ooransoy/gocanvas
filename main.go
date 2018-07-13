@@ -32,18 +32,20 @@ func main() {
 	go serve()
 	fmt.Println("Server is up! CTRL-C to exit")
 
+	rectX := 20
+	rectY := 20
+	// speedX := 0.1
+	// speedY := 0.1
 	// Game Loop
 	for {
-		if rand.Int()%2000 == 0 {
-			col := pickcol(walkerSlice)
-			for i := 0; i < 800; i++ {
-				for j := 0; j < 600; j++ {
-					canvas.Set(i, j, col)
-				}
+		drawRect(rectX, rectY, rectX + 30, rectY + 40, color.RGBA{0,0,0,255})
+		rectX += 1
+		rectY += 1
+		
+		for i := 0; i < 800; i++ {
+			for j := 0; j < 600; j++ {
+				canvas.Set(i, j, color.RGBA{255,255,255,255})
 			}
-		}
-		for _, w := range walkerSlice {
-			w.Tick()
 		}
 		time.Sleep(tickWait)
 	}
