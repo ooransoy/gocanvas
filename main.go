@@ -31,7 +31,6 @@ func main() {
 
 	go serve()
 	fmt.Println("Server is up! CTRL-C to exit")
-
 	// Game Loop
 	for {
 		if rand.Int()%2000 == 0 {
