@@ -9,7 +9,6 @@ type Walker struct {
 	x int
 	y int
 	c color.Color
-	o Orientation
 }
 
 func NewWalker(x, y int) *Walker {
@@ -17,7 +16,6 @@ func NewWalker(x, y int) *Walker {
 		x,
 		y,
 		color.RGBA{rUint8(), rUint8(), rUint8(), 255},
-		North,
 	}
 	return &w
 }
