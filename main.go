@@ -34,7 +34,7 @@ func main() {
 
 	// Game Loop
 	for {
-		if rand.Int() % 2000 == 0 {
+		if rand.Int()%2000 == 0 {
 			col := pickcol(walkerSlice)
 			for i := 0; i < 800; i++ {
 				for j := 0; j < 600; j++ {

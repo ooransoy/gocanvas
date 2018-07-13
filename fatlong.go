@@ -6,10 +6,10 @@ import (
 )
 
 type FatLongWalker struct {
-	x int
-	y int
-	c color.Color
-	o Orientation
+	x    int
+	y    int
+	c    color.Color
+	o    Orientation
 	wait int
 }
 
@@ -31,12 +31,12 @@ func (w *FatLongWalker) Tick() {
 	}
 	w.wait = 0
 	canvas.Set(w.x, w.y, w.c)
-	canvas.Set(w.x+1, w.y  , w.c)
-	canvas.Set(w.x-1, w.y  , w.c)
-	canvas.Set(w.x  , w.y+1, w.c)
+	canvas.Set(w.x+1, w.y, w.c)
+	canvas.Set(w.x-1, w.y, w.c)
+	canvas.Set(w.x, w.y+1, w.c)
 	canvas.Set(w.x+1, w.y+1, w.c)
 	canvas.Set(w.x-1, w.y+1, w.c)
-	canvas.Set(w.x  , w.y-1, w.c)
+	canvas.Set(w.x, w.y-1, w.c)
 	canvas.Set(w.x+1, w.y-1, w.c)
 	canvas.Set(w.x-1, w.y-1, w.c)
 
@@ -49,13 +49,13 @@ func (w *FatLongWalker) Tick() {
 
 	switch w.o {
 	case North:
-		w.y+=3
+		w.y += 3
 	case East:
-		w.x+=3
+		w.x += 3
 	case West:
-		w.y-=3
+		w.y -= 3
 	case South:
-		w.x-=3
+		w.x -= 3
 	}
 	w.x = ((w.x % width) + width) % width
 	w.y = ((w.y % height) + height) % height
