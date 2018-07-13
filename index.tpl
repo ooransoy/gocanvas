@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		<h1>{{.}}<img id="logo" src="/static/nullptr.png" /></h1>
-		<img id="screen" src="/getImg" alt="Simulation Screen"/>
+		<img id="screen" src="/img" alt="Simulation Screen"/>
 		<script>
 			setInterval(refresh,100)
 			function refresh() {
