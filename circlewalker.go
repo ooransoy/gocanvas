@@ -5,14 +5,14 @@ import (
 	"math/rand"
 )
 
-type Walker struct {
+type CircleWalker struct {
 	x int
 	y int
 	c color.Color
 }
 
-func NewWalker(x, y int) *Walker {
-	w := Walker{
+func NewCircleWalker(x, y int) *CircleWalker {
+	w := CircleWalker{
 		x,
 		y,
 		color.RGBA{rUint8(), rUint8(), rUint8(), 255},
@@ -20,8 +20,8 @@ func NewWalker(x, y int) *Walker {
 	return &w
 }
 
-func (w *Walker) Tick() {
-	canvas.Set(w.x, w.y, w.c)
+func (w *CircleWalker) Tick() {
+	drawCircle(w.x, w.y, 10, w.c, false)
 	if rand.Intn(10) == 1 {
 		canvas.Set(w.x, w.y, color.RGBA{0, 0, 0, 255})
 	}
@@ -37,8 +37,4 @@ func (w *Walker) Tick() {
 	}
 	w.x = ((w.x % width) + width) % width
 	w.y = ((w.y % height) + height) % height
-}
-
-func rUint8() uint8 {
-	return uint8(rand.Intn(256))
 }
