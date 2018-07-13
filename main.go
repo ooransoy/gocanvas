@@ -23,9 +23,9 @@ var canvas *image.RGBA = image.NewRGBA(
 func main() {
 	fmt.Println("Starting game...")
 	// Setup
-	walkerSlice := make([]*Walker, 10, 10)
-	for i, _ := range walkerSlice {
-		walkerSlice[i] = NewWalker(width/2, height/2)
+	cWalkerSlice := make([]*CircleWalker, 10, 10)
+	for i, _ := range cWalkerSlice {
+		cWalkerSlice[i] = NewCircleWalker(width/2, height/2)
 	}
 	// /Setup
 
@@ -35,14 +35,14 @@ func main() {
 	// Game Loop
 	for {
 		if rand.Int()%2000 == 0 {
-			col := pickcol(walkerSlice)
+			col := pickcol(cWalkerSlice)
 			for i := 0; i < 800; i++ {
 				for j := 0; j < 600; j++ {
 					canvas.Set(i, j, col)
 				}
 			}
 		}
-		for _, w := range walkerSlice {
+		for _, w := range cWalkerSlice {
 			w.Tick()
 		}
 		time.Sleep(tickWait)
@@ -50,6 +50,6 @@ func main() {
 	// /Game Loop
 }
 
-func pickcol(a []*Walker) color.Color {
+func pickcol(a []*CircleWalker) color.Color {
 	return (*a[rand.Intn(len(a))]).c
 }
