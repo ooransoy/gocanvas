@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func drawLine(x1, y1, x2 ,y2 int,c color.RGBA){
+func drawLine(x1, y1, x2 ,y2 int,c color.Color){
 	dx := int(math.Abs(float64(x2 - x1)))
 	dy := int(math.Abs(float64(y2 - y1)))
 	for i := 0;i < dx; i++ {
