@@ -1,4 +1,4 @@
-package main
+package gocanvas
 
 import (
 	"math/rand"

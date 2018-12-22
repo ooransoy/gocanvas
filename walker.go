@@ -1,4 +1,4 @@
-package main
+package gocanvas
 
 import (
 	"image/color"
@@ -21,9 +21,9 @@ func NewWalker(x, y int) *Walker {
 }
 
 func (w *Walker) Tick() {
-	canvas.Set(w.x, w.y, w.c)
+	Canvas.Set(w.x, w.y, w.c)
 	if rand.Intn(10) == 1 {
-		canvas.Set(w.x, w.y, color.RGBA{0, 0, 0, 255})
+		Canvas.Set(w.x, w.y, color.RGBA{0, 0, 0, 255})
 	}
 	switch RandomOrientation() {
 	case North:
@@ -35,8 +35,8 @@ func (w *Walker) Tick() {
 	case South:
 		w.x--
 	}
-	w.x = ((w.x % width) + width) % width
-	w.y = ((w.y % height) + height) % height
+	w.x = ((w.x % Width) + Width) % Width
+	w.y = ((w.y % Height) + Height) % Height
 }
 
 func rUint8() uint8 {
